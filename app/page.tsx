@@ -246,10 +246,44 @@ export default function KaliAIProjectPage() {
           </Card>
         </div>
 
-        {/* Instructions */}
+        {/* Instructions for AIDE */}
+        <Card className="mt-6 border-amber-500/50">
+          <CardHeader className="bg-amber-500/10">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Smartphone className="h-5 w-5 text-amber-500" />
+              AIDE (Android IDE) Users - Manual Steps
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="p-4 rounded-lg bg-muted/50 border">
+                <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">1</div>
+                <h3 className="font-medium mb-1">Create New Project</h3>
+                <p className="text-sm text-muted-foreground">AIDE mein File &rarr; New Project &rarr; Gradle &rarr; com.kali.ai</p>
+              </div>
+              <div className="p-4 rounded-lg bg-muted/50 border">
+                <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">2</div>
+                <h3 className="font-medium mb-1">Copy Each File</h3>
+                <p className="text-sm text-muted-foreground">File select karo, Copy button click karo, AIDE mein paste karo</p>
+              </div>
+              <div className="p-4 rounded-lg bg-muted/50 border">
+                <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">3</div>
+                <h3 className="font-medium mb-1">Same Path Use Karo</h3>
+                <p className="text-sm text-muted-foreground">Jis path pe file hai wahi folder mein paste karo</p>
+              </div>
+              <div className="p-4 rounded-lg bg-muted/50 border">
+                <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">4</div>
+                <h3 className="font-medium mb-1">Build Karo</h3>
+                <p className="text-sm text-muted-foreground">Sab files paste hone ke baad Run button press karo</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Instructions for Android Studio */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle className="text-lg">How to Use in Android Studio</CardTitle>
+            <CardTitle className="text-lg">Android Studio Users</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kali AI</string>
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="send">Send</string>
+    <string name="voice_input">Voice Input</string>
+    <string name="type_message">Type your message...</string>
+    <string name="say_kali">Say \'Kali\' to activate</string>
+    <string name="listening">Listening...</string>
+    <string name="thinking">Thinking...</string>
+</resources>
