@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Download, FileCode, Folder, FolderOpen, Copy, Check, Smartphone, Zap, MessageSquare, Key, Database, Bell } from "lucide-react"
 
+const fileCount = kaliAIProject.length
+
 export default function KaliAIProjectPage() {
   const [selectedFile, setSelectedFile] = useState<ProjectFile | null>(kaliAIProject[0])
   const [copied, setCopied] = useState(false)
@@ -174,6 +176,15 @@ export default function KaliAIProjectPage() {
         </div>
       </header>
 
+      {/* Important Notice for AIDE Users */}
+      <section className="bg-amber-500/10 border-b border-amber-500/30">
+        <div className="container mx-auto px-4 py-3">
+          <p className="text-sm text-amber-700 dark:text-amber-300 text-center">
+            <strong>AIDE Users:</strong> Yeh web page hai - yahan se code COPY karo aur AIDE app mein PASTE karo. Neeche instructions hain.
+          </p>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="border-b bg-muted/30">
         <div className="container mx-auto px-4 py-6">
@@ -199,7 +210,7 @@ export default function KaliAIProjectPage() {
             <CardHeader className="py-3 px-4 border-b bg-muted/30">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <Folder className="h-4 w-4 text-amber-500" />
-                Project Files ({kaliAIProject.length} files)
+                Project Files ({fileCount} files)
               </CardTitle>
             </CardHeader>
             <ScrollArea className="h-[calc(100%-52px)]">
@@ -247,35 +258,66 @@ export default function KaliAIProjectPage() {
         </div>
 
         {/* Instructions for AIDE */}
-        <Card className="mt-6 border-amber-500/50">
+        <Card className="mt-6 border-amber-500/50" id="aide-instructions">
           <CardHeader className="bg-amber-500/10">
             <CardTitle className="text-lg flex items-center gap-2">
               <Smartphone className="h-5 w-5 text-amber-500" />
-              AIDE (Android IDE) Users - Manual Steps
+              AIDE (Android IDE) - Step by Step Guide
             </CardTitle>
           </CardHeader>
-          <CardContent className="pt-4">
+          <CardContent className="pt-4 space-y-4">
+            {/* Warning Box */}
+            <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30">
+              <p className="text-sm text-red-600 dark:text-red-400">
+                <strong>Note:</strong> &quot;./gradlew not found&quot; error ignore karo - wo is web environment ki wajah se aa raha hai. 
+                Aapko yahan se manually code copy karke AIDE mein paste karna hai.
+              </p>
+            </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-4 rounded-lg bg-muted/50 border">
                 <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">1</div>
-                <h3 className="font-medium mb-1">Create New Project</h3>
-                <p className="text-sm text-muted-foreground">AIDE mein File &rarr; New Project &rarr; Gradle &rarr; com.kali.ai</p>
+                <h3 className="font-medium mb-1">AIDE mein New Project</h3>
+                <p className="text-sm text-muted-foreground">
+                  File &rarr; New &rarr; New Gradle Project<br/>
+                  Package: <code className="bg-muted px-1 rounded">com.kali.ai</code>
+                </p>
               </div>
               <div className="p-4 rounded-lg bg-muted/50 border">
                 <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">2</div>
-                <h3 className="font-medium mb-1">Copy Each File</h3>
-                <p className="text-sm text-muted-foreground">File select karo, Copy button click karo, AIDE mein paste karo</p>
+                <h3 className="font-medium mb-1">Upar File Select Karo</h3>
+                <p className="text-sm text-muted-foreground">
+                  Left side pe file tree se file click karo, phir &quot;Copy Code&quot; button dabao
+                </p>
               </div>
               <div className="p-4 rounded-lg bg-muted/50 border">
                 <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">3</div>
-                <h3 className="font-medium mb-1">Same Path Use Karo</h3>
-                <p className="text-sm text-muted-foreground">Jis path pe file hai wahi folder mein paste karo</p>
+                <h3 className="font-medium mb-1">AIDE mein Paste Karo</h3>
+                <p className="text-sm text-muted-foreground">
+                  Same path pe file create karo AIDE mein aur paste karo (MainActivity.java wagera)
+                </p>
               </div>
               <div className="p-4 rounded-lg bg-muted/50 border">
                 <div className="h-8 w-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold mb-2">4</div>
-                <h3 className="font-medium mb-1">Build Karo</h3>
-                <p className="text-sm text-muted-foreground">Sab files paste hone ke baad Run button press karo</p>
+                <h3 className="font-medium mb-1">Sab Files Karo</h3>
+                <p className="text-sm text-muted-foreground">
+                  Total {fileCount} files hain - ek ek karke copy paste karo, phir Run
+                </p>
               </div>
+            </div>
+
+            {/* File order suggestion */}
+            <div className="p-4 rounded-lg bg-muted/50 border">
+              <h4 className="font-medium mb-2">Pehle yeh files copy karo (important order):</h4>
+              <ol className="text-sm text-muted-foreground list-decimal list-inside space-y-1">
+                <li><code className="bg-muted px-1 rounded">build.gradle</code> (root)</li>
+                <li><code className="bg-muted px-1 rounded">settings.gradle</code></li>
+                <li><code className="bg-muted px-1 rounded">app/build.gradle</code></li>
+                <li><code className="bg-muted px-1 rounded">AndroidManifest.xml</code></li>
+                <li>Java files (MainActivity.java sabse pehle)</li>
+                <li>Layout XML files</li>
+                <li>Drawable aur values files</li>
+              </ol>
             </div>
           </CardContent>
         </Card>
